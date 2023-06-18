@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+#About WordCrafters
 A simple WordCrafter where you can update your text
-made using ReactJS
+made using ReactJS,Bootstrap.
 
 includes concepts like:-
 Props
