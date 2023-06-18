@@ -1,4 +1,4 @@
-#About WordCrafters
+# About WordCrafters
 A simple WordCrafter where you can update your text
 made using ReactJS,Bootstrap.
 
