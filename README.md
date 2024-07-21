@@ -1,11 +1,11 @@
-# About WordCrafters
-A simple WordCrafter where you can update your text
-made using ReactJS,Bootstrap.
+# InstantVote
 
-includes concepts like:-
-Props, Usestate, Hooks, React Routers
+InstantVote is an Online Voting System that provides a user-friendly web app experience. Key features include:
 
-includes features like:-
-Enable light and dark mode- using usestate hooks
-alert message using react hooks, props
-displaying 2 pages in no load using React Router
+- **Frontend**: Developed with React for a responsive and dynamic user interface.
+- **Backend**: Built with Node.js and Express for a robust server-side application.
+- **Authentication**: Utilizes Firebase for secure user authentication.
+- **Voting Process**: Ensures a secure and smooth voting experience.
+- **Real-Time Results**: Displays results instantly using real-time data updates.
+- **API Interaction**: Employs Axios for seamless communication with APIs.
+
