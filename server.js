@@ -22,7 +22,7 @@ let votes = {
   APNA_DAL: 0,
 };
 
-let userVotes = {}; // Track votes per user
+let userVotes = {}; 
 
 app.get('/votes', (req, res) => {
   res.json(votes);
@@ -31,7 +31,7 @@ app.get('/votes', (req, res) => {
 app.post('/vote', async (req, res) => {
   const { party, idToken } = req.body;
 
-  // Verify the user's ID token
+ 
   try {
     const decodedToken = await admin.auth().verifyIdToken(idToken);
     const uid = decodedToken.uid;
@@ -42,7 +42,7 @@ app.post('/vote', async (req, res) => {
 
     if (votes[party] !== undefined) {
       votes[party]++;
-      userVotes[uid] = party; // Record the user's vote
+      userVotes[uid] = party; 
       res.status(200).send('Vote counted!');
     } else {
       res.status(400).send('Invalid party');
