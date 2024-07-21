@@ -1,52 +1,101 @@
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './components/Navbar';
-import TextForm from './components/TextForm';
-import About from './components/About';
-import React, { useState } from 'react';
-import Alert from './components/Alert';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from 'react-router-dom';
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+// import SignUp from './SignUp';
+// import Login from './Login';
+// import Vote from './Vote';
+// import Results from './Results';
+// import { auth } from './firebase';
+// import { useAuthState } from 'react-firebase-hooks/auth';
 
-function App() {
-  const[darkmode, setMode] = useState('light')
-  const[alert, setAlert] = useState(null)
-  //alert ko ek object bana rahe hai
- 
-  const toggleModefun = () => {
-    if(darkmode === 'light'){
-      setMode('dark')
-      document.body.style.backgroundColor = '#042743'
-    }
-    else{
-      setMode('light')
-      document.body.style.backgroundColor = 'white'
-    }
+// const App = () => {
+//   const [user, loading, error] = useAuthState(auth);
+
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div>Error: {error.message}</div>;
+//   }
+
+//   return (
+//     <Router>
+//       <div>
+//         <nav>
+//           <ul>
+//             <li><a href="/">Home</a></li>
+//             {user ? (
+//               <>
+//                 <li><a href="/vote">Vote</a></li>
+//                 <li><a href="/results">Results</a></li>
+//                 <li><button onClick={() => auth.signOut()}>Logout</button></li>
+//               </>
+//             ) : (
+//               <>
+//                 <li><a href="/login">Login</a></li>
+//                 <li><a href="/signup">Sign Up</a></li>
+//               </>
+//             )}
+//           </ul>
+//         </nav>
+//         <Routes>
+//           <Route path="/" element={user ? <Navigate to="/vote" /> : <Navigate to="/login" />} />
+//           <Route path="/signup" element={<SignUp />} />
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/vote" element={user ? <Vote /> : <Navigate to="/login" />} />
+//           <Route path="/results" element={user ? <Results /> : <Navigate to="/login" />} />
+//         </Routes>
+//       </div>
+//     </Router>
+//   );
+// };
+
+// export default App;
+
+
+
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
+import SignUp from './SignUp';
+import Login from './Login';
+import Vote from './Vote';
+import Results from './Results';
+import { auth } from './firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+const App = () => {
+  const [user, loading, error] = useAuthState(auth);
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
   }
 
-  return (<>
-      <Router>
-  <Navbar title="WordCrafters" aboutText="About Us" mode = {darkmode} toggleMode = {toggleModefun}></Navbar>
-  <Alert alert = "This is an alert"/>
-<div className="container my-3">
+  if (error) {
+    return <div className="error">Error: {error.message}</div>;
+  }
 
-<Routes>
-	<Route exact path='/about' element={< About />}>
-  </Route>
-	<Route exact path='/' element={<TextForm heading="Enter the text to analyze below" mode={darkmode}></TextForm>}>
-  </Route>
-</Routes>
-
-
-{/* <About></About> */}
-</div>
-</Router>
-  </>
+  return (
+    <Router>
+      <div className="app">
+        <header className="header">
+          <h1>InstantVote</h1>
+        </header>
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={user ? <Navigate to="/vote" /> : <Navigate to="/login" />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/vote" element={user ? <Vote /> : <Navigate to="/login" />} />
+            <Route path="/results" element={user ? <Results /> : <Navigate to="/login" />} />
+          </Routes>
+        </main>
+        <footer className="footer">
+          <p>&copy; 2024 Cast your vote online. All rights reserved.</p>
+        </footer>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

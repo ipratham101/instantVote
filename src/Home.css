@@ -1,0 +1,48 @@
+.home-container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .home-container h2 {
+    color: #4267B2;
+    margin-bottom: 1rem;
+  }
+  
+  .home-container p {
+    margin-bottom: 2rem;
+  }
+  
+  .home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .home-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .home-button.signup {
+    background-color: #4267B2;
+    color: white;
+  }
+  
+  .home-button.signup:hover {
+    background-color: #365899;
+  }
+  
+  .home-button.login {
+    background-color: white;
+    color: #4267B2;
+    border: 2px solid #4267B2;
+  }
+  
+  .home-button.login:hover {
+    background-color: #f0f2f5;
+  }
