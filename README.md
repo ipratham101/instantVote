@@ -1,6 +1,7 @@
 # InstantVote
+**This project was made under internship work at next24tech technology & services**
 
-InstantVote is an Online Voting System that provides a user-friendly web app experience. Key features include:
+- InstantVote is an Online Voting System that provides a user-friendly web app experience. Key features include:
 
 - **Frontend**: Developed with React for a responsive and dynamic user interface.
 - **Backend**: Built with Node.js and Express for a robust server-side application.
