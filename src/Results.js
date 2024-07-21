@@ -10,7 +10,7 @@ const Results = () => {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await axios.get('https://instantvote1.onrender.com/results');
+        const response = await axios.get('/results');
         setResults(response.data);
       } catch (error) {
         console.error('Error fetching results:', error);
