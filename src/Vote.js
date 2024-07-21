@@ -24,7 +24,7 @@ const Vote = () => {
 
     try {
       const token = await user.getIdToken();
-      const response = await axios.post('https://instantvote1.onrender.com/vote', { party, idToken: token });
+      const response = await axios.post('/vote', { party, idToken: token });
       setMessage(response.data);
     } catch (error) {
       setMessage('Error: Could not cast vote.');
